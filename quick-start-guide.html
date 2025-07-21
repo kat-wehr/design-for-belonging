@@ -251,6 +251,95 @@
             font-size: 3rem;
             margin-bottom: 1rem;
         }
+        
+        .reflection-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .reflection-question {
+            margin: 1.5rem 0;
+        }
+        
+        .reflection-question label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #495057;
+        }
+        
+        .reflection-question textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-family: Georgia, serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+        
+        .reflection-question textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .reflection-save {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .connection-section {
+            background: #e7f3ff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin: 1.5rem 0;
+        }
+        
+        .definition-box {
+            background: #fff;
+            border: 2px solid #667eea;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+        }
+        
+        .next-steps-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid #667eea;
+        }
+        
+        .moment-card-cta {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: white;
+            border: 1px solid #dee2e6;
+            transition: all 0.3s ease;
+        }
+        
+        .moment-card-cta:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+        }
+        
+        .moment-card-cta .btn {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+        }
+        
+        .moment-card-cta .resource-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -261,18 +350,49 @@
         
         <header>
             <h1>🚀 Quick Start Guide</h1>
-            <p class="subtitle">Get started with belonging-centered teaching in 5 steps</p>
+            <p class="subtitle">Discover belonging-centered teaching in 3 focused steps</p>
         </header>
         
         <div class="progress-indicator">
             <div class="progress-step active" data-step="1">1</div>
             <div class="progress-step" data-step="2">2</div>
             <div class="progress-step" data-step="3">3</div>
-            <div class="progress-step" data-step="4">4</div>
-            <div class="progress-step" data-step="5">5</div>
         </div>
         
-        <!-- Step 1: Understanding Belonging -->
+        <!-- Step 1: Personal Reflection -->
+        <div class="step-content active" id="step-1">
+            <h2 class="step-title">Step 1: Your Belonging Story</h2>
+            <p>Before diving into theory, let's start with your own experience. Understanding what makes you feel like you belong will help you create that feeling for your students.</p>
+            
+            <div class="reflection-section">
+                <h3>Reflection Questions:</h3>
+                <div class="reflection-question">
+                    <label for="belonging-place"><strong>Think of a place where you truly feel like you belong:</strong></label>
+                    <textarea id="belonging-place" placeholder="Describe this place... What is it? Why do you feel you belong there?" rows="3"></textarea>
+                </div>
+                
+                <div class="reflection-question">
+                    <label for="belonging-actions"><strong>What specific actions or behaviors make you feel welcomed and valued there?</strong></label>
+                    <textarea id="belonging-actions" placeholder="What do people do or say? How do they treat you? What makes the environment feel safe and inclusive?" rows="4"></textarea>
+                </div>
+                
+                <div class="reflection-question">
+                    <label for="belonging-opposite"><strong>Think of a time when you felt like you didn't belong. What was missing?</strong></label>
+                    <textarea id="belonging-opposite" placeholder="What made you feel excluded or unwelcome? What would have helped you feel more included?" rows="3"></textarea>
+                </div>
+            </div>
+            
+            <div class="quick-tip">
+                <strong>Your Insights Matter:</strong> These personal experiences are your foundation for creating belonging in learning spaces. Keep these feelings in mind as we explore the research-based strategies ahead.
+            </div>
+            
+            <div class="reflection-save">
+                <button class="btn btn-secondary" id="save-reflection">💾 Save My Reflections</button>
+                <small style="display: block; margin-top: 0.5rem; color: #666;">Your reflections are saved locally and will be available throughout this session.</small>
+            </div>
+        </div>
+        
+        <!-- Step 2: Understanding Belonging -->
         <div class="step-content active" id="step-1">
             <h2 class="step-title">Step 1: Understanding Belonging in Learning</h2>
             <p>Belonging in educational contexts means students feel valued, included, and able to be their authentic selves while learning. Research shows it directly impacts engagement, retention, and success.</p>
@@ -292,8 +412,8 @@
         </div>
         
         <!-- Step 2: Assess Your Current Practices -->
-        <div class="step-content" id="step-2">
-            <h2 class="step-title">Step 2: Assess Your Current Practices</h2>
+        <div class="step-content" id="step-3">
+            <h2 class="step-title">Step 3: Assess Your Current Practices</h2>
             <p>Before making changes, let's identify what you're already doing well and where there's room for growth.</p>
             
             <h3>Belonging Self-Assessment:</h3>
@@ -314,8 +434,8 @@
         </div>
         
         <!-- Step 3: Plan Your Beginning -->
-        <div class="step-content" id="step-3">
-            <h2 class="step-title">Step 3: Plan Your Beginning</h2>
+        <div class="step-content" id="step-4">
+            <h2 class="step-title">Step 4: Plan Your Beginning</h2>
             <p>The opening moments of any learning experience are crucial for establishing belonging. Students decide quickly whether they feel they belong.</p>
             
             <h3>Beginning Strategies Checklist:</h3>
@@ -345,8 +465,8 @@
         </div>
         
         <!-- Step 4: Maintain Belonging Throughout -->
-        <div class="step-content" id="step-4">
-            <h2 class="step-title">Step 4: Maintain Belonging Throughout</h2>
+        <div class="step-content" id="step-5">
+            <h2 class="step-title">Step 5: Maintain Belonging Throughout</h2>
             <p>Belonging isn't a one-time achievement. It needs consistent nurturing through ongoing practices and interactions.</p>
             
             <h3>Ongoing Belonging Strategies:</h3>
@@ -367,8 +487,8 @@
         </div>
         
         <!-- Step 5: Create Meaningful Closure -->
-        <div class="step-content" id="step-5">
-            <h2 class="step-title">Step 5: Create Meaningful Closure</h2>
+        <div class="step-content" id="step-6">
+            <h2 class="step-title">Step 6: Create Meaningful Closure</h2>
             <p>How learning experiences end significantly impacts students' willingness to continue learning and their lasting connection to your field.</p>
             
             <h3>Belonging Aftercare Strategies:</h3>
@@ -412,7 +532,7 @@
     
     <script>
         let currentStep = 1;
-        const totalSteps = 5;
+        const totalSteps = 3;
         
         // Initialize the guide
         updateDisplay();
@@ -421,6 +541,9 @@
         document.getElementById('next-btn').addEventListener('click', nextStep);
         document.getElementById('prev-btn').addEventListener('click', prevStep);
         
+        // Reflection save functionality
+        document.getElementById('save-reflection').addEventListener('click', saveReflections);
+        
         // Checklist interactions
         document.querySelectorAll('.checklist li').forEach(item => {
             item.addEventListener('click', function() {
@@ -428,6 +551,9 @@
                 checkStepCompletion();
             });
         });
+        
+        // Load saved reflections on page load
+        loadSavedReflections();
         
         function nextStep() {
             if (currentStep < totalSteps) {
@@ -477,6 +603,37 @@
             }
         }
         
+        function saveReflections() {
+            const reflections = {
+                belongingPlace: document.getElementById('belonging-place').value,
+                belongingActions: document.getElementById('belonging-actions').value,
+                belongingOpposite: document.getElementById('belonging-opposite').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Save to memory for this session
+            window.savedReflections = reflections;
+            
+            // Show feedback
+            const saveBtn = document.getElementById('save-reflection');
+            const originalText = saveBtn.textContent;
+            saveBtn.textContent = '✅ Saved!';
+            saveBtn.style.backgroundColor = '#28a745';
+            
+            setTimeout(() => {
+                saveBtn.textContent = originalText;
+                saveBtn.style.backgroundColor = '';
+            }, 2000);
+        }
+        
+        function loadSavedReflections() {
+            if (window.savedReflections) {
+                document.getElementById('belonging-place').value = window.savedReflections.belongingPlace || '';
+                document.getElementById('belonging-actions').value = window.savedReflections.belongingActions || '';
+                document.getElementById('belonging-opposite').value = window.savedReflections.belongingOpposite || '';
+            }
+        }
+        
         function checkStepCompletion() {
             const currentStepElement = document.getElementById(`step-${currentStep}`);
             const checklist = currentStepElement.querySelectorAll('.checklist li');
@@ -493,8 +650,8 @@
         function checkFinalCompletion() {
             // Show completion message after a short delay on final step
             setTimeout(() => {
-                const allChecklists = document.querySelectorAll('#step-5 .checklist li');
-                const allCompleted = document.querySelectorAll('#step-5 .checklist li.checked');
+                const allChecklists = document.querySelectorAll('#step-3 .checklist li');
+                const allCompleted = document.querySelectorAll('#step-3 .checklist li.checked');
                 
                 if (allCompleted.length === allChecklists.length) {
                     document.getElementById('completion-message').style.display = 'block';
