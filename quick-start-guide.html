@@ -472,12 +472,27 @@
         loadSavedReflections();
         
         function nextStep() {
-            if (currentStep < totalSteps) {
-                currentStep++;
-                updateDisplay();
-                window.scrollTo(0, 0);
-            }
+    if (currentStep < totalSteps) {
+        currentStep++;
+        updateDisplay();
+        window.scrollTo(0, 0);
+    } else if (currentStep === totalSteps) {
+        // Final step: show completion message and resources
+        const message = document.getElementById('completion-message');
+        if (message) {
+            message.style.display = 'block';
+            message.scrollIntoView({ behavior: 'smooth' });
         }
+
+        const resourceCards = document.querySelectorAll('#step-3 .resources-grid');
+        resourceCards.forEach(section => {
+            section.style.display = 'grid';  // Unhide resource section if hidden
+        });
+
+        document.getElementById('next-btn').disabled = true;
+        document.getElementById('step-indicator').textContent = `All Steps Completed 🎉`;
+    }
+}
         
         function prevStep() {
             if (currentStep > 1) {
