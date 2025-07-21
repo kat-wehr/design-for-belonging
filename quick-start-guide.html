@@ -437,6 +437,29 @@
     <p>You've completed the Quick Start Guide! You now have a framework for creating belonging-centered learning experiences.</p>
     <p style="margin-top: 1rem;"><strong>Next steps:</strong> Choose one area to implement this week, then gradually build your belonging practices over time.</p>
 </div>
+            function nextStep() {
+    if (currentStep < totalSteps) {
+        currentStep++;
+        updateDisplay();
+        window.scrollTo(0, 0);
+    } else if (currentStep === totalSteps) {
+        // Final step: show completion message and resources
+        const message = document.getElementById('completion-message');
+        if (message) {
+            message.style.display = 'block';
+            message.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const resourceCards = document.querySelectorAll('#step-3 .resources-grid');
+        resourceCards.forEach(section => {
+            section.style.display = 'grid';  // Unhide resource section if hidden
+        });
+
+        document.getElementById('next-btn').disabled = true;
+        document.getElementById('step-indicator').textContent = `All Steps Completed 🎉`;
+    }
+}
+
         </div>         
         
         <div class="navigation-buttons">
