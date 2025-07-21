@@ -437,29 +437,37 @@
     <p>You've completed the Quick Start Guide! You now have a framework for creating belonging-centered learning experiences.</p>
     <p style="margin-top: 1rem;"><strong>Next steps:</strong> Choose one area to implement this week, then gradually build your belonging practices over time.</p>
 </div>
-            function nextStep() {
-    if (currentStep < totalSteps) {
-        currentStep++;
-        updateDisplay();
-        window.scrollTo(0, 0);
-    } else if (currentStep === totalSteps) {
-        // Final step: show completion message and resources
-        const message = document.getElementById('completion-message');
-        if (message) {
-            message.style.display = 'block';
-            message.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        const resourceCards = document.querySelectorAll('#step-3 .resources-grid');
-        resourceCards.forEach(section => {
-            section.style.display = 'grid';  // Unhide resource section if hidden
-        });
-
-        document.getElementById('next-btn').disabled = true;
-        document.getElementById('step-indicator').textContent = `All Steps Completed 🎉`;
-    }
-}
-
+       <div class="resources-grid" style="margin-top: 2rem;">
+    <div class="resource-card">
+        <a href="preparation.html" style="text-decoration: none; color: inherit;">
+            <div class="resource-icon">🧭</div>
+            <h4>Preparation</h4>
+            <p>Design your course with belonging in mind from the very start.</p>
+        </a>
+    </div>
+    <div class="resource-card">
+        <a href="beginning.html" style="text-decoration: none; color: inherit;">
+            <div class="resource-icon">🌱</div>
+            <h4>Beginning</h4>
+            <p>Foster belonging in the critical first moments of learning.</p>
+        </a>
+    </div>
+    <div class="resource-card">
+        <a href="maintenance.html" style="text-decoration: none; color: inherit;">
+            <div class="resource-icon">🔄</div>
+            <h4>Maintenance</h4>
+            <p>Sustain a sense of inclusion through consistent practices.</p>
+        </a>
+    </div>
+    <div class="resource-card">
+        <a href="aftercare.html" style="text-decoration: none; color: inherit;">
+            <div class="resource-icon">🎓</div>
+            <h4>Aftercare</h4>
+            <p>End strong and leave learners feeling connected and empowered.</p>
+        </a>
+    </div>
+</div>
+     
         </div>         
         
         <div class="navigation-buttons">
