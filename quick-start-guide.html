@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start Guide - Belonging in Learning Spaces</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Georgia, serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .nav-back {
+            margin-bottom: 1rem;
+        }
+        
+        .nav-back a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .nav-back a:hover {
+            text-decoration: underline;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            gap: 1rem;
+        }
+        
+        .progress-step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+        
+        .progress-step.active {
+            background: #667eea;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .progress-step.completed {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .step-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            min-height: 400px;
+            display: none;
+        }
+        
+        .step-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .step-title {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .checklist {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .checklist li {
+            margin: 0.8rem 0;
+            padding: 0.8rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .checklist li:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .checklist li.checked {
+            background: #d4edda;
+            border-left-color: #28a745;
+            text-decoration: line-through;
+            opacity: 0.8;
+        }
+        
+        .checklist li::before {
+            content: "☐";
+            margin-right: 10px;
+            font-size: 1.2rem;
+            color: #667eea;
+        }
+        
+        .checklist li.checked::before {
+            content: "☑";
+            color: #28a745;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding: 1rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .quick-tip {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .quick-tip::before {
+            content: "💡 ";
+            font-weight: bold;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .resource-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+        
+        .resource-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .completion-celebration {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .celebration-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-back">
+            <a href="index.html">← Back to Toolkit Home</a>
+        </div>
+        
+        <header>
+            <h1>🚀 Quick Start Guide</h1>
+            <p class="subtitle">Get started with belonging-centered teaching in 5 steps</p>
+        </header>
+        
+        <div class="progress-indicator">
+            <div class="progress-step active" data-step="1">1</div>
+            <div class="progress-step" data-step="2">2</div>
+            <div class="progress-step" data-step="3">3</div>
+            <div class="progress-step" data-step="4">4</div>
+            <div class="progress-step" data-step="5">5</div>
+        </div>
+        
+        <!-- Step 1: Understanding Belonging -->
+        <div class="step-content active" id="step-1">
+            <h2 class="step-title">Step 1: Understanding Belonging in Learning</h2>
+            <p>Belonging in educational contexts means students feel valued, included, and able to be their authentic selves while learning. Research shows it directly impacts engagement, retention, and success.</p>
+            
+            <h3>Key Concepts to Remember:</h3>
+            <ul class="checklist">
+                <li>Belonging is both psychological (feeling valued) and practical (having what you need to succeed)</li>
+                <li>It's especially critical in online and hybrid learning environments</li>
+                <li>Small, intentional actions can make a big difference</li>
+                <li>Belonging benefits ALL students, not just those from underrepresented groups</li>
+                <li>It requires ongoing attention throughout the learning experience</li>
+            </ul>
+            
+            <div class="quick-tip">
+                <strong>Quick Tip:</strong> Think about a time when you felt like you truly belonged somewhere. What specific actions or words made you feel that way? Those same principles apply to your students.
+            </div>
+        </div>
+        
+        <!-- Step 2: Assess Your Current Practices -->
+        <div class="step-content" id="step-2">
+            <h2 class="step-title">Step 2: Assess Your Current Practices</h2>
+            <p>Before making changes, let's identify what you're already doing well and where there's room for growth.</p>
+            
+            <h3>Belonging Self-Assessment:</h3>
+            <ul class="checklist">
+                <li>I use welcoming, inclusive language in my course materials</li>
+                <li>I provide clear expectations and navigation support</li>
+                <li>I acknowledge different learning styles and backgrounds</li>
+                <li>I give timely, constructive feedback that shows I care about student growth</li>
+                <li>I create opportunities for students to connect with each other</li>
+                <li>I check in on student progress and wellbeing regularly</li>
+                <li>I celebrate student achievements and growth</li>
+                <li>I end courses/modules in a way that maintains connections</li>
+            </ul>
+            
+            <div class="quick-tip">
+                <strong>Reflection:</strong> Don't worry if you're not checking all these boxes yet. This assessment helps you prioritize where to focus your belonging-building efforts.
+            </div>
+        </div>
+        
+        <!-- Step 3: Plan Your Beginning -->
+        <div class="step-content" id="step-3">
+            <h2 class="step-title">Step 3: Plan Your Beginning</h2>
+            <p>The opening moments of any learning experience are crucial for establishing belonging. Students decide quickly whether they feel they belong.</p>
+            
+            <h3>Beginning Strategies Checklist:</h3>
+            <ul class="checklist">
+                <li>Write a warm, personal welcome message that shows your enthusiasm</li>
+                <li>Use "we" language instead of "you" language when possible</li>
+                <li>Provide a clear course navigation guide or orientation</li>
+                <li>Share your teaching philosophy and why you care about this subject</li>
+                <li>Create an inclusive syllabus that addresses diverse needs</li>
+                <li>Include accessibility information proactively</li>
+                <li>Design an engaging first activity that helps students connect</li>
+                <li>Set up regular communication rhythms from day one</li>
+            </ul>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📝</div>
+                    <h4>Welcome Message Template</h4>
+                    <p>Downloadable template for crafting belonging-centered welcome messages</p>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">📋</div>
+                    <h4>Inclusive Syllabus Checklist</h4>
+                    <p>Ensure your syllabus communicates belonging from the start</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Step 4: Maintain Belonging Throughout -->
+        <div class="step-content" id="step-4">
+            <h2 class="step-title">Step 4: Maintain Belonging Throughout</h2>
+            <p>Belonging isn't a one-time achievement. It needs consistent nurturing through ongoing practices and interactions.</p>
+            
+            <h3>Ongoing Belonging Strategies:</h3>
+            <ul class="checklist">
+                <li>Establish predictable communication patterns</li>
+                <li>Provide feedback that focuses on growth and effort</li>
+                <li>Use students' names and acknowledge their contributions</li>
+                <li>Create opportunities for student voice and choice</li>
+                <li>Address challenges with empathy and solution-focused language</li>
+                <li>Share your own learning experiences and challenges</li>
+                <li>Facilitate peer connections and collaboration</li>
+                <li>Regularly check in on both academic and personal wellbeing</li>
+            </ul>
+            
+            <div class="quick-tip">
+                <strong>Implementation Tip:</strong> Pick 2-3 strategies from this list to focus on first. Once they become habits, add more belonging practices gradually.
+            </div>
+        </div>
+        
+        <!-- Step 5: Create Meaningful Closure -->
+        <div class="step-content" id="step-5">
+            <h2 class="step-title">Step 5: Create Meaningful Closure</h2>
+            <p>How learning experiences end significantly impacts students' willingness to continue learning and their lasting connection to your field.</p>
+            
+            <h3>Belonging Aftercare Strategies:</h3>
+            <ul class="checklist">
+                <li>Celebrate individual and collective growth explicitly</li>
+                <li>Help students reflect on their learning journey</li>
+                <li>Provide resources for continued learning</li>
+                <li>Create opportunities for ongoing connection</li>
+                <li>End with hope and encouragement for future learning</li>
+                <li>Share how students can stay connected to the community</li>
+                <li>Acknowledge the temporary nature of formal learning but ongoing relationships</li>
+            </ul>
+            
+            <div class="completion-celebration" style="display: none;" id="completion-message">
+                <div class="celebration-icon">🎉</div>
+                <h3>Congratulations!</h3>
+                <p>You've completed the Quick Start Guide! You now have a framework for creating belonging-centered learning experiences.</p>
+                <p style="margin-top: 1rem;"><strong>Next steps:</strong> Choose one area to implement this week, then gradually build your belonging practices over time.</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">🎯</div>
+                    <h4>Action Planning Template</h4>
+                    <p>Plan your next steps for implementing belonging strategies</p>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">📊</div>
+                    <h4>Progress Tracker</h4>
+                    <p>Monitor your belonging-building progress over time</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navigation-buttons">
+            <button class="btn btn-secondary" id="prev-btn" disabled>← Previous</button>
+            <span id="step-indicator">Step 1 of 5</span>
+            <button class="btn btn-primary" id="next-btn">Next →</button>
+        </div>
+    </div>
+    
+    <script>
+        let currentStep = 1;
+        const totalSteps = 5;
+        
+        // Initialize the guide
+        updateDisplay();
+        
+        // Navigation buttons
+        document.getElementById('next-btn').addEventListener('click', nextStep);
+        document.getElementById('prev-btn').addEventListener('click', prevStep);
+        
+        // Checklist interactions
+        document.querySelectorAll('.checklist li').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('checked');
+                checkStepCompletion();
+            });
+        });
+        
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateDisplay();
+                window.scrollTo(0, 0);
+            }
+        }
+        
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateDisplay();
+                window.scrollTo(0, 0);
+            }
+        }
+        
+        function updateDisplay() {
+            // Hide all step content
+            document.querySelectorAll('.step-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show current step content
+            document.getElementById(`step-${currentStep}`).classList.add('active');
+            
+            // Update progress indicators
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                step.classList.remove('active', 'completed');
+                if (index + 1 === currentStep) {
+                    step.classList.add('active');
+                } else if (index + 1 < currentStep) {
+                    step.classList.add('completed');
+                }
+            });
+            
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = currentStep === 1;
+            document.getElementById('next-btn').textContent = currentStep === totalSteps ? 'Complete Guide' : 'Next →';
+            
+            // Update step indicator
+            document.getElementById('step-indicator').textContent = `Step ${currentStep} of ${totalSteps}`;
+            
+            // Show completion message on final step
+            if (currentStep === totalSteps) {
+                checkFinalCompletion();
+            }
+        }
+        
+        function checkStepCompletion() {
+            const currentStepElement = document.getElementById(`step-${currentStep}`);
+            const checklist = currentStepElement.querySelectorAll('.checklist li');
+            const completed = currentStepElement.querySelectorAll('.checklist li.checked');
+            
+            // Optional: Add visual feedback when steps are completed
+            const completionRate = checklist.length > 0 ? (completed.length / checklist.length) * 100 : 0;
+            
+            if (completionRate === 100 && currentStep === totalSteps) {
+                document.getElementById('completion-message').style.display = 'block';
+            }
+        }
+        
+        function checkFinalCompletion() {
+            // Show completion message after a short delay on final step
+            setTimeout(() => {
+                const allChecklists = document.querySelectorAll('#step-5 .checklist li');
+                const allCompleted = document.querySelectorAll('#step-5 .checklist li.checked');
+                
+                if (allCompleted.length === allChecklists.length) {
+                    document.getElementById('completion-message').style.display = 'block';
+                }
+            }, 500);
+        }
+        
+        // Allow clicking on progress indicators to navigate
+        document.querySelectorAll('.progress-step').forEach((step, index) => {
+            step.addEventListener('click', () => {
+                currentStep = index + 1;
+                updateDisplay();
+                window.scrollTo(0, 0);
+            });
+        });
+    </script>
+</body>
+</html>
