@@ -431,12 +431,16 @@
             <div class="quick-tip">
                 <strong>Reflection:</strong> Don't worry if you're not checking all these boxes yet. This assessment helps you prioritize where to focus your belonging-building efforts.
             </div>
-         <div class="completion-celebration" style="display: none;" id="completion-message">
+          <!-- Completion Message -->
+            <div class="completion-celebration" style="display: none;" id="completion-message">
     <div class="celebration-icon">🎉</div>
     <h3>Congratulations!</h3>
     <p>You've completed the Quick Start Guide! You now have a framework for creating belonging-centered learning experiences.</p>
     <p style="margin-top: 1rem;"><strong>Next steps:</strong> Choose one area to implement this week, then gradually build your belonging practices over time.</p>
-<div class="resources-grid" style="margin-top: 2rem;">
+
+    <div id="key-moments-section" class="resources-grid" style="display: none; margin-top: 2rem;">
+    <!-- cards go here -->
+                <div class="resources-grid" style="margin-top: 2rem;">
     <div class="resource-card">
         <a href="preparation.html" style="text-decoration: none; color: inherit;">
             <div class="resource-icon">🧭</div>
@@ -466,6 +470,7 @@
         </a>
     </div>
 </div>
+        </div>
          </div>
         </div>         
         
@@ -507,18 +512,26 @@
         updateDisplay();
         window.scrollTo(0, 0);
     } else if (currentStep === totalSteps) {
-        // Final step: show completion message and resources
+        // Final step: show celebration message
         const message = document.getElementById('completion-message');
         if (message) {
             message.style.display = 'block';
             message.scrollIntoView({ behavior: 'smooth' });
         }
 
+        // Reveal planning resources
         const resourceCards = document.querySelectorAll('#step-3 .resources-grid');
         resourceCards.forEach(section => {
-            section.style.display = 'grid';  // Unhide resource section if hidden
+            section.style.display = 'grid';
         });
 
+        // Show Key Moments section
+        const keyMoments = document.getElementById('key-moments-section');
+        if (keyMoments) {
+            keyMoments.style.display = 'grid';
+        }
+
+        // Update step UI
         document.getElementById('next-btn').disabled = true;
         document.getElementById('step-indicator').textContent = `All Steps Completed 🎉`;
     }
