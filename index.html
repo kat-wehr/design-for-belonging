@@ -59,16 +59,25 @@
         }
         
         .moment-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .moment-card:hover {
-            transform: translateY(-5px);
-        }
+    display: block;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.moment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.moment-card h3,
+.moment-card p {
+    margin-bottom: 1rem;
+}
         
         .moment-title {
             color: #667eea;
@@ -125,38 +134,30 @@
         </section>
         
         <section class="moments-grid">
-            <a href="preparation.html" style="text-decoration: none;">
             <div class="moment-card">
                 <h3 class="moment-title">Preparation</h3>
                 <p>This is the pre-launch phase, where it's important to consider the pedagogies, tools, activities, and objectives and how all of these work together to support belonging.</p>
                 <p><strong>Key Focus:</strong> Ensuring alignment between course design and belonging goals</p>
             </div>
-            </a>
-
-            <a href="beginning.html" style="text-decoration: none;">
-            <div class="moment-card">
+           
+                <div class="moment-card">
                 <h3 class="moment-title">Beginning</h3>
                 <p>The opening of a learning experience sets the tone for belonging. From syllabi to welcome messages, learn strategies to help students feel they belong from day one.</p>
                 <p><strong>Key Focus:</strong> Preventing "digital culture shock" and belonging uncertainty</p>
             </div>
-            </a>
-
-            <a href="maintenance.html" style="text-decoration: none;">
+            
             <div class="moment-card">
                 <h3 class="moment-title">Maintenance</h3>
                 <p>Belonging isn't a one-time investment. It requires ongoing attention. Discover how routines, feedback, and communication can sustain belonging throughout the learning journey.</p>
                 <p><strong>Key Focus:</strong> Continuous support through language, feedback, and student agency</p>
             </div>
-            </a>
-
-            <a href="aftercare.html" style="text-decoration: none;">
+        
             <div class="moment-card">
                 <h3 class="moment-title">Aftercare</h3>
                 <p>How experiences end matters for future engagement. Learn to create closure that celebrates growth and maintains connections beyond the formal academic calendar.</p>
                 <p><strong>Key Focus:</strong> Building resilience and encouraging return engagement</p>
             </div>
-            </a>
-        </section>
+            </section>
         
         <section class="cta-section">
             <h2>Ready to Get Started?</h2>
