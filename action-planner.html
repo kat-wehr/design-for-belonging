@@ -197,14 +197,14 @@
         
         <header>
             <h1>Action Planner</h1>
-            <p class="subtitle">Transform Insights into Implementation</p>
+            <p class="subtitle">Turn Reflection into Practice</p>
         </header>
         
         <section class="intro">
             <h2>Plan Your Belonging-Focused Improvements</h2>
-            <p>Use this tool to identify specific opportunities in your courses where you can strengthen students' sense of belonging. After exploring the three critical moments, reflect on your current practices and plan meaningful changes.</p>
+            <p>Use this tool to identify specific opportunities in your practice where you can strengthen students' sense of belonging. After exploring the four critical moments, reflect on your current practices and plan meaningful changes.</p>
             
-            <p><strong>How to use this tool:</strong> Fill out each section thoughtfully. You can save your progress by downloading a PDF copy at any time. Focus on small, achievable changes that align with your teaching context.</p>
+            <p><strong>How to use this tool:</strong> Fill out each section thoughtfully. You can save your progress by downloading a PDF copy at any time. Consider both "small moves" (what can I do today?) and "big moves" (what can I do with more time, collaboration, resources?).</p>
         </section>
         
         <form class="planner-form" id="actionPlannerForm">
@@ -212,37 +212,60 @@
                 <label for="courseInfo">Course/Context Information:</label>
                 <textarea id="courseInfo" name="courseInfo" placeholder="Describe your course(s), student population, delivery format, and any relevant context..."></textarea>
             </div>
-            
+            <div class="question-group">
+                <label for="courseInfo">Course Values/Objectives:</label>
+                <textarea id="courseObj" name="courseObj" placeholder="What are the values of the course? What are the learning goals/objectives? How do students typically meet the objectives?"></textarea>
+            </div>
+
             <div class="moment-section">
-                <h3 class="moment-title">🌟 The Beginning</h3>
+                <h3 class="moment-title">Preparation</h3>
                 
                 <div class="question-group">
-                    <label for="beginningCurrent">What are you currently doing well to support belonging at the beginning of your course?</label>
-                    <textarea id="beginningCurrent" name="beginningCurrent" placeholder="Examples: welcoming syllabus language, icebreaker activities, accessibility statements, community guidelines..."></textarea>
+                    <label for="preparationCurrent">What pedagogical approaches and design strategies currently exist in the course, and in what ways do these practices support belonging?</label>
+                    <textarea id="preparationCurrent" name="preparationCurrent" placeholder="Examples: welcoming syllabus language, designed opportunities for student ownership, proactive accessibility and inclusivity strategies..."></textarea>
                 </div>
                 
                 <div class="question-group">
-                    <label for="beginningOpportunities">What opportunities do you see to improve belonging at the beginning?</label>
-                    <textarea id="beginningOpportunities" name="beginningOpportunities" placeholder="Consider: first impressions, onboarding processes, setting expectations, reducing anxiety..."></textarea>
+                    <label for="preparationOpportunities">What opportunities do you see to improve belonging prior to course launch?</label>
+                    <textarea id="preparationOpportunities" name="preparationOpportunities" placeholder="Consider: first impressions, onboarding processes, setting expectations, reducing anxiety..."></textarea>
                 </div>
                 
                 <div class="question-group">
-                    <label for="beginningBarriers">What barriers might prevent you from implementing these improvements?</label>
-                    <textarea id="beginningBarriers" name="beginningBarriers" placeholder="Examples: time constraints, institutional policies, technical limitations, class size..."></textarea>
+                    <label for="preparationBarriers">What barriers might prevent you from implementing these improvements?</label>
+                    <textarea id="preparationBarriers" name="preparationBarriers" placeholder="Examples: time constraints, institutional policies, technical limitations, class size..."></textarea>
                 </div>
             </div>
             
             <div class="moment-section">
-                <h3 class="moment-title">🔄 Belonging Maintenance</h3>
+                <h3 class="moment-title">Beginning</h3>
                 
                 <div class="question-group">
-                    <label for="maintenanceCurrent">What are you currently doing well to maintain belonging throughout your course?</label>
+                    <label for="beginningCurrent">What are you currently doing well to support belonging at the beginning of your course?</label>
+                    <textarea id="beginningCurrent" name="beginningCurrent" placeholder="Examples: welcome announcement/module, icebreaker activities, community guidelines..."></textarea>
+                </div>
+                
+                <div class="question-group">
+                    <label for="beginningOpportunities">What opportunities do you see to improve belonging at the beginning?</label>
+                    <textarea id="beginningOpportunities" name="beginningOpportunities" placeholder="Consider: mitigating digital culture shock, inviting learners to set some class norms, using warm, friendly language..."></textarea>
+                </div>
+                
+                <div class="question-group">
+                    <label for="beginningBarriers">What barriers might prevent you from implementing these improvements?</label>
+                    <textarea id="beginningBarriers" name="beginningBarriers" placeholder="Examples: technology constraints, academic calendar, domain values..."></textarea>
+                </div>
+            </div>
+            
+            <div class="moment-section">
+                <h3 class="moment-title">Maintenance</h3>
+                
+                <div class="question-group">
+                    <label for="maintenanceCurrent">What are you currently doing well to maintain belonging throughout the course?</label>
                     <textarea id="maintenanceCurrent" name="maintenanceCurrent" placeholder="Examples: regular check-ins, feedback practices, discussion facilitation, peer connections..."></textarea>
                 </div>
                 
                 <div class="question-group">
                     <label for="maintenanceOpportunities">What opportunities do you see to improve belonging maintenance?</label>
-                    <textarea id="maintenanceOpportunities" name="maintenanceOpportunities" placeholder="Consider: communication tone, feedback frequency, student voice, community building..."></textarea>
+                    <textarea id="maintenanceOpportunities" name="maintenanceOpportunities" placeholder="Consider: communication tone, feedback frequency, student ownership..."></textarea>
                 </div>
                 
                 <div class="question-group">
@@ -252,10 +275,10 @@
             </div>
             
             <div class="moment-section">
-                <h3 class="moment-title">✨ Belonging Aftercare</h3>
+                <h3 class="moment-title">Aftercare</h3>
                 
                 <div class="question-group">
-                    <label for="aftercareCurrent">What are you currently doing well to support belonging at the end of your course?</label>
+                    <label for="aftercareCurrent">What are you currently doing well to support belonging through the end of the course?</label>
                     <textarea id="aftercareCurrent" name="aftercareCurrent" placeholder="Examples: course wrap-up activities, celebration of learning, connections to future courses..."></textarea>
                 </div>
                 
@@ -271,9 +294,9 @@
             </div>
             
             <div class="priority-section">
-                <h3>🎯 Priority Actions</h3>
+                <h3>🎯 Next Steps</h3>
                 <div class="question-group">
-                    <label for="topPriorities">Based on your reflections above, what are your top 3 priorities for improving belonging in your course?</label>
+                    <label for="topPriorities">Based on your reflections above, what are your top 3 most impactful opportunities for supporting belonging in the course? Consider impact in terms of small moves (What can I do today/this week/this month?) and big moves (What can I do with more time/collaborators/resources?).</label>
                     <textarea id="topPriorities" name="topPriorities" placeholder="List your most important and achievable improvements. Be specific about what you'll change and when..."></textarea>
                 </div>
                 
@@ -289,7 +312,7 @@
             </div>
             
             <div class="action-summary">
-                <h3>🚀 Implementation Commitment</h3>
+                <h3>🚀 Commitment to Act</h3>
                 <div class="question-group">
                     <label for="commitment" style="color: white;">What's one specific action you commit to taking within the next 30 days?</label>
                     <textarea id="commitment" name="commitment" placeholder="Be specific and actionable. This should be something small but meaningful that will move you forward..." style="margin-top: 0.5rem;"></textarea>
@@ -306,7 +329,7 @@
         <div class="reflection-grid">
             <div class="reflection-card">
                 <h4>💡 Remember</h4>
-                <p>Small changes can have big impacts. Focus on what feels manageable and authentic to your teaching style.</p>
+                <p>Small changes can have big impacts. Focus on what feels manageable and aligned to your practice.</p>
             </div>
             
             <div class="reflection-card">
