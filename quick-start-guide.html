@@ -113,6 +113,32 @@
             font-size: 1.8rem;
             margin-bottom: 1rem;
         }
+
+        .quiz-question {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.quiz-question h4 {
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.quiz-question label {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  color: #444;
+}
+
+.quiz-feedback {
+  font-weight: bold;
+  padding-top: 0.5rem;
+}
         
         .checklist {
             list-style: none;
@@ -412,24 +438,130 @@
             </div>
         </div>
         
-        <!-- Step 2: Understanding Belonging -->
-        <div class="step-content" id="step-2">
-            <h2 class="step-title">Step 2: Understanding Belonging in Learning</h2>
-            <p>Belonging in educational contexts means students feel valued, included, and able to be their authentic selves while learning. Research shows it directly impacts engagement, retention, and success.</p>
-            
-            <h3>Key Concepts to Remember:</h3>
-            <ul class="checklist">
-                <li>Belonging is both psychological (feeling valued) and practical (having what you need to succeed)</li>
-                <li>It's especially critical in online and hybrid learning environments</li>
-                <li>Small, intentional actions can make a big difference</li>
-                <li>Belonging benefits ALL students, not just those from underrepresented groups</li>
-                <li>It requires ongoing attention throughout the learning experience</li>
-            </ul>
-            
-            <div class="quick-tip">
-                <strong>Quick Tip:</strong> Think about a time when you felt like you truly belonged somewhere. What specific actions or words made you feel that way? Those same principles apply to your students.
-            </div>
-        </div>
+        <!-- Step 2: Why Belonging Matters Quiz -->
+<div class="step-content" id="step-2">
+  <h2 class="step-title">Step 2: Why Belonging Matters</h2>
+  <p>Test your knowledge about why belonging is critical for student success — especially in online learning. Select the best answer for each question to learn more.</p>
+
+  <div id="quiz">
+    <!-- Questions will be injected here -->
+  </div>
+</div>
+
+<script>
+const questions = [
+  {
+    question: "Why is belonging especially important to consider in online learning environments?",
+    options: [
+      "Students can't see their instructors",
+      "Online learners can easily meet with instructors in person",
+      "Online learners often experience invisibility, isolation, or lack of connection",
+      "Belonging doesn’t apply to online learning contexts"
+    ],
+    correct: 2,
+    feedback: "Exactly. Online learners often lack informal touchpoints and visibility, making it harder to feel seen, valued, or included — all central components of belonging."
+  },
+  {
+    question: "Who is responsible for sustaining a sense of belonging in a learning environment?",
+    options: [
+      "Only students",
+      "Only faculty or instructors",
+      "Instructional designers, faculty/instructors, and students",
+      "Only the student support team"
+    ],
+    correct: 2,
+    feedback: "Exactly. While each group contributes in different ways, instructional designers, faculty, and students all have roles to play in sustaining a sense of belonging. Belonging emerges from the culture we co-create."
+  },
+  {
+    question: "What is 'belonging uncertainty'?",
+    options: [
+      "The belief that everyone belongs equally",
+      "A grading strategy used in large courses",
+      "A feeling that one’s belonging is conditional or unlikely due to identity",
+      "An instructor’s doubt about a learner’s effort"
+    ],
+    correct: 2,
+    feedback: "Yes. Belonging uncertainty is the feeling that 'people like me don’t belong here,' which disproportionately affects historically marginalized students and impacts achievement."
+  },
+  {
+    question: "Which of the following outcomes has been linked to students’ sense of belonging in online settings?",
+    options: [
+      "Higher writing self-efficacy",
+      "Increased resilience under stress",
+      "Lower rates of disengagement",
+      "All of the above"
+    ],
+    correct: 3,
+    feedback: "Correct. Research shows that belonging supports student resilience, engagement, and self-efficacy — all key drivers of success in online learning."
+  },
+  {
+    question: "How can instructional designers support equity through their work?",
+    options: [
+      "By creating flashy course visuals",
+      "By avoiding conversations about identity",
+      "By designing learning experiences that intentionally foster belonging",
+      "By minimizing student collaboration"
+    ],
+    correct: 2,
+    feedback: "Exactly. Belonging is a crucial equity lever — instructional designers are uniquely positioned to foster inclusive, identity-affirming learning environments."
+  }
+];
+
+const incorrectFeedbackMessages = [
+  "That’s a common belief, but there’s a better answer. Give it another try!",
+  "Not quite — but this is a great opportunity to learn more. Try again!",
+  "Close! Belonging is complex — see if you can find the best answer.",
+  "Good thinking, but the best answer is still out there. You’ve got this!",
+  "Almost! Consider what the research says about belonging and try again.",
+  "Not quite — but this is a great opportunity to think deeper. Try again when you’re ready!"
+];
+
+function loadQuiz() {
+  const quizContainer = document.getElementById("quiz");
+  questions.forEach((q, idx) => {
+    const questionDiv = document.createElement("div");
+    questionDiv.className = "quiz-question";
+    const qTitle = document.createElement("h4");
+    qTitle.textContent = `Q${idx + 1}: ${q.question}`;
+    questionDiv.appendChild(qTitle);
+
+    const feedback = document.createElement("div");
+    feedback.className = "quiz-feedback";
+    feedback.style.marginTop = "0.5rem";
+    questionDiv.appendChild(feedback);
+
+    q.options.forEach((opt, i) => {
+      const label = document.createElement("label");
+      label.style.display = "block";
+      label.style.marginBottom = "0.4rem";
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = `question-${idx}`;
+      input.value = i;
+      input.style.marginRight = "0.5rem";
+
+      input.addEventListener("click", () => {
+        if (parseInt(input.value) === q.correct) {
+          feedback.textContent = q.feedback;
+          feedback.style.color = "#28a745";
+        } else {
+          const msg = incorrectFeedbackMessages[Math.floor(Math.random() * incorrectFeedbackMessages.length)];
+          feedback.textContent = msg;
+          feedback.style.color = "#dc3545";
+        }
+      });
+
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(opt));
+      questionDiv.appendChild(label);
+    });
+
+    quizContainer.appendChild(questionDiv);
+  });
+}
+
+loadQuiz();
+</script>
         
         <!-- Step 3: Assess Your Current Practices -->
         <div class="step-content" id="step-3">
