@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Planner - Belonging in Learning Spaces</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Georgia, serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .planner-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .moment-section {
+            border-left: 4px solid #667eea;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .moment-title {
+            color: #667eea;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .question-group {
+            margin-bottom: 2rem;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 5px;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .reflection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .reflection-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .reflection-card h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .action-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .priority-section {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .download-actions {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media print {
+            .download-actions, .nav-link, .btn {
+                display: none;
+            }
+            body {
+                background: white;
+            }
+            .planner-form, .intro {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="nav-link">← Back to Toolkit</a>
+        
+        <header>
+            <h1>Action Planner</h1>
+            <p class="subtitle">Transform Insights into Implementation</p>
+        </header>
+        
+        <section class="intro">
+            <h2>Plan Your Belonging-Focused Improvements</h2>
+            <p>Use this tool to identify specific opportunities in your courses where you can strengthen students' sense of belonging. After exploring the three critical moments, reflect on your current practices and plan meaningful changes.</p>
+            
+            <p><strong>How to use this tool:</strong> Fill out each section thoughtfully. You can save your progress by downloading a PDF copy at any time. Focus on small, achievable changes that align with your teaching context.</p>
+        </section>
+        
+        <form class="planner-form" id="actionPlannerForm">
+            <div class="question-group">
+                <label for="courseInfo">Course/Context Information:</label>
+                <textarea id="courseInfo" name="courseInfo" placeholder="Describe your course(s), student population, delivery format, and any relevant context..."></textarea>
+            </div>
+            
+            <div class="moment-section">
+                <h3 class="moment-title">🌟 The Beginning</h3>
+                
+                <div class="question-group">
+                    <label for="beginningCurrent">What are you currently doing well to support belonging at the beginning of your course?</label>
+                    <textarea id="beginningCurrent" name="beginningCurrent" placeholder="Examples: welcoming syllabus language, icebreaker activities, accessibility statements, community guidelines..."></textarea>
+                </div>
+                
+                <div class="question-group">
+                    <label for="beginningOpportunities">What opportunities do you see to improve belonging at the beginning?</label>
+                    <textarea id="beginningOpportunities" name="beginningOpportunities" placeholder="Consider: first impressions, onboarding processes, setting expectations, reducing anxiety..."></textarea>
+                </div>
+                
+                <div class="question-group">
+                    <label for="beginningBarriers">What barriers might prevent you from implementing these improvements?</label>
+                    <textarea id="beginningBarriers" name="beginningBarriers" placeholder="Examples: time constraints, institutional policies, technical limitations, class size..."></textarea>
+                </div>
+            </div>
+            
+            <div class="moment-section">
+                <h3 class="moment-title">🔄 Belonging Maintenance</h3>
+                
+                <div class="question-group">
+                    <label for="maintenanceCurrent">What are you currently doing well to maintain belonging throughout your course?</label>
+                    <textarea id="maintenanceCurrent" name="maintenanceCurrent" placeholder="Examples: regular check-ins, feedback practices, discussion facilitation, peer connections..."></textarea>
+                </div>
+                
+                <div class="question-group">
+                    <label for="maintenanceOpportunities">What opportunities do you see to improve belonging maintenance?</label>
+                    <textarea id="maintenanceOpportunities" name="maintenanceOpportunities" placeholder="Consider: communication tone, feedback frequency, student voice, community building..."></textarea>
+                </div>
+                
+                <div class="question-group">
+                    <label for="maintenanceBarriers">What barriers might prevent you from implementing these improvements?</label>
+                    <textarea id="maintenanceBarriers" name="maintenanceBarriers" placeholder="Examples: grading workload, technology comfort, student engagement levels, time management..."></textarea>
+                </div>
+            </div>
+            
+            <div class="moment-section">
+                <h3 class="moment-title">✨ Belonging Aftercare</h3>
+                
+                <div class="question-group">
+                    <label for="aftercareCurrent">What are you currently doing well to support belonging at the end of your course?</label>
+                    <textarea id="aftercareCurrent" name="aftercareCurrent" placeholder="Examples: course wrap-up activities, celebration of learning, connections to future courses..."></textarea>
+                </div>
+                
+                <div class="question-group">
+                    <label for="aftercareOpportunities">What opportunities do you see to improve belonging aftercare?</label>
+                    <textarea id="aftercareOpportunities" name="aftercareOpportunities" placeholder="Consider: reflection activities, portfolio development, alumni connections, transition support..."></textarea>
+                </div>
+                
+                <div class="question-group">
+                    <label for="aftercareBarriers">What barriers might prevent you from implementing these improvements?</label>
+                    <textarea id="aftercareBarriers" name="aftercareBarriers" placeholder="Examples: end-of-semester time pressure, limited follow-up opportunities, student availability..."></textarea>
+                </div>
+            </div>
+            
+            <div class="priority-section">
+                <h3>🎯 Priority Actions</h3>
+                <div class="question-group">
+                    <label for="topPriorities">Based on your reflections above, what are your top 3 priorities for improving belonging in your course?</label>
+                    <textarea id="topPriorities" name="topPriorities" placeholder="List your most important and achievable improvements. Be specific about what you'll change and when..."></textarea>
+                </div>
+                
+                <div class="question-group">
+                    <label for="resources">What resources, support, or training would help you implement these changes?</label>
+                    <textarea id="resources" name="resources" placeholder="Examples: technology training, time management strategies, professional development, colleague collaboration..."></textarea>
+                </div>
+                
+                <div class="question-group">
+                    <label for="timeline">What's your realistic timeline for implementing these changes?</label>
+                    <textarea id="timeline" name="timeline" placeholder="Consider: next semester, summer preparation, gradual implementation, pilot testing..."></textarea>
+                </div>
+            </div>
+            
+            <div class="action-summary">
+                <h3>🚀 Implementation Commitment</h3>
+                <div class="question-group">
+                    <label for="commitment" style="color: white;">What's one specific action you commit to taking within the next 30 days?</label>
+                    <textarea id="commitment" name="commitment" placeholder="Be specific and actionable. This should be something small but meaningful that will move you forward..." style="margin-top: 0.5rem;"></textarea>
+                </div>
+            </div>
+            
+            <div class="download-actions">
+                <button type="button" class="btn" onclick="downloadPDF()">📄 Download as PDF</button>
+                <button type="button" class="btn btn-secondary" onclick="printPlan()">🖨️ Print Plan</button>
+                <button type="button" class="btn btn-secondary" onclick="clearForm()">🔄 Start Over</button>
+            </div>
+        </form>
+        
+        <div class="reflection-grid">
+            <div class="reflection-card">
+                <h4>💡 Remember</h4>
+                <p>Small changes can have big impacts. Focus on what feels manageable and authentic to your teaching style.</p>
+            </div>
+            
+            <div class="reflection-card">
+                <h4>🤝 Share & Connect</h4>
+                <p>Consider sharing your plan with a colleague or mentor for accountability and support.</p>
+            </div>
+            
+            <div class="reflection-card">
+                <h4>📊 Measure Impact</h4>
+                <p>Think about how you'll know if your changes are working. Student feedback, engagement metrics, or your own observations?</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function downloadPDF() {
+            // Simple print-to-PDF functionality
+            window.print();
+        }
+        
+        function printPlan() {
+            window.print();
+        }
+        
+        function clearForm() {
+            if (confirm('Are you sure you want to clear all your responses? This cannot be undone.')) {
+                document.getElementById('actionPlannerForm').reset();
+            }
+        }
+        
+        // Auto-save to browser storage as user types
+        const form = document.getElementById('actionPlannerForm');
+        const inputs = form.querySelectorAll('textarea');
+        
+        // Load saved data on page load
+        window.addEventListener('load', function() {
+            inputs.forEach(input => {
+                const saved = sessionStorage.getItem(input.name);
+                if (saved) {
+                    input.value = saved;
+                }
+            });
+        });
+        
+        // Save data as user types
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                sessionStorage.setItem(this.name, this.value);
+            });
+        });
+        
+        // Clear session storage when starting over
+        function clearForm() {
+            if (confirm('Are you sure you want to clear all your responses? This cannot be undone.')) {
+                document.getElementById('actionPlannerForm').reset();
+                inputs.forEach(input => {
+                    sessionStorage.removeItem(input.name);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
